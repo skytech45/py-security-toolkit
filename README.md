@@ -2,9 +2,9 @@
 
 A collection of lightweight, useful Python utilities for security analysis, network scanning, and automation.
 
-## Features (Planned)
-- [ ] **Network Scanner**: Identify active hosts and open ports.
-- [ ] **Hash Generator/Validator**: Quickly generate and verify file hashes (MD5, SHA-256).
+## Features
+- [x] **Network Scanner**: Identify active hosts and open ports using multi-threading.
+- [x] **Hash Generator/Validator**: Quickly generate and verify file hashes (MD5, SHA-1, SHA-256, SHA-512).
 - [ ] **Password Strength Checker**: Analyze password complexity.
 - [ ] **Subdomain Finder**: Basic reconnaissance tool.
 
@@ -16,7 +16,20 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-*Instructions coming soon...*
+
+### Network Scanner
+```bash
+python network_scanner.py 127.0.0.1 -s 1 -e 1024 -t 200
+```
+
+### Hash Tool
+```bash
+# Calculate SHA-256 hash of a file
+python hash_tool.py path/to/file.ext
+
+# Verify a file's hash
+python hash_tool.py path/to/file.ext -a md5 -v <expected_md5_hash>
+```
 
 ## License
 MIT
