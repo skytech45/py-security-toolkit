@@ -5,8 +5,8 @@ A collection of lightweight, useful Python utilities for security analysis, netw
 ## Features
 - [x] **Network Scanner**: Identify active hosts and open ports using multi-threading.
 - [x] **Hash Generator/Validator**: Quickly generate and verify file hashes (MD5, SHA-1, SHA-256, SHA-512).
-- [ ] **Password Strength Checker**: Analyze password complexity.
-- [ ] **Subdomain Finder**: Basic reconnaissance tool.
+- [x] **Password Strength Checker**: Analyze password complexity and provide security feedback.
+- [x] **Subdomain Finder**: Basic multi-threaded reconnaissance tool for finding active subdomains.
 
 ## Installation
 ```bash
@@ -29,6 +29,18 @@ python hash_tool.py path/to/file.ext
 
 # Verify a file's hash
 python hash_tool.py path/to/file.ext -a md5 -v <expected_md5_hash>
+```
+
+### Password Strength Checker
+```bash
+# Analyze a password
+python password_checker.py -p "YourPassword123!"
+```
+
+### Subdomain Finder
+```bash
+# Search for subdomains of a target domain
+python subdomain_finder.py google.com -t 20
 ```
 
 ## License
