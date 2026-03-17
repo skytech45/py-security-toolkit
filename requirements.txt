@@ -1,1 +1,2 @@
-requests>=2.31.0
+# py-security-toolkit dependencies
+requests>=2.28.0
