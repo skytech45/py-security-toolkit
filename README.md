@@ -7,6 +7,7 @@ A collection of lightweight, useful Python utilities for security analysis, netw
 - [x] **Hash Generator/Validator**: Quickly generate and verify file hashes (MD5, SHA-1, SHA-256, SHA-512).
 - [x] **Password Strength Checker**: Analyze password complexity and provide security feedback.
 - [x] **Subdomain Finder**: Basic multi-threaded reconnaissance tool for finding active subdomains.
+- [x] **HTTP Header Analyzer**: Check for security headers (CSP, HSTS, etc.) on any website.
 
 ## Installation
 ```bash
@@ -41,6 +42,12 @@ python password_checker.py -p "YourPassword123!"
 ```bash
 # Search for subdomains of a target domain
 python subdomain_finder.py google.com -t 20
+```
+
+### HTTP Header Analyzer
+```bash
+# Analyze security headers of a website
+python header_analyzer.py google.com
 ```
 
 ## License
