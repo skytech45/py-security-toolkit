@@ -1,54 +1,132 @@
-# Python Security Toolkit
+# 🔐 Python Security Toolkit
 
-A collection of lightweight, useful Python utilities for security analysis, network scanning, and automation.
+> A lightweight, modular collection of Python security and network analysis utilities — built for ethical hacking, CTFs, and developer productivity.
 
-## Features
-- [x] **Network Scanner**: Identify active hosts and open ports using multi-threading.
-- [x] **Hash Generator/Validator**: Quickly generate and verify file hashes (MD5, SHA-1, SHA-256, SHA-512).
-- [x] **Password Strength Checker**: Analyze password complexity and provide security feedback.
-- [x] **Subdomain Finder**: Basic multi-threaded reconnaissance tool for finding active subdomains.
-- [x] **HTTP Header Analyzer**: Check for security headers (CSP, HSTS, etc.) on any website.
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Status](https://img.shields.io/badge/Status-Active-brightgreen)
+![Author](https://img.shields.io/badge/Author-skytech45-orange)
 
-## Installation
+---
+
+## 📦 Tools Included
+
+| File | Description |
+|------|-------------|
+| `network_scanner.py` | Multi-threaded TCP port scanner |
+| `port_banner_grabber.py` | Port scanner with service banner grabbing |
+| `subdomain_finder.py` | DNS-based subdomain enumeration |
+| `header_analyzer.py` | HTTP security header analyzer |
+| `hash_tool.py` | File hash generator and validator |
+| `password_checker.py` | Password strength analyzer with entropy scoring |
+
+---
+
+## 🚀 Installation
+
 ```bash
 git clone https://github.com/skytech45/py-security-toolkit.git
 cd py-security-toolkit
 pip install -r requirements.txt
 ```
 
-## Usage
+---
 
-### Network Scanner
+## 🛠️ Usage
+
+### 🔎 Network Scanner
+Scan open ports on a target host using multi-threading.
 ```bash
-python network_scanner.py 127.0.0.1 -s 1 -e 1024 -t 200
+python network_scanner.py -t 192.168.1.1 -s 1 -e 1024
 ```
 
-### Hash Tool
+### 🏷️ Port Banner Grabber
+Scan ports and grab service banners for identification.
 ```bash
-# Calculate SHA-256 hash of a file
-python hash_tool.py path/to/file.ext
-
-# Verify a file's hash
-python hash_tool.py path/to/file.ext -a md5 -v <expected_md5_hash>
+python port_banner_grabber.py -t example.com
+python port_banner_grabber.py -t 192.168.1.1 -p 22,80,443,8080
+python port_banner_grabber.py -t example.com -p 1-1000 -o results.csv
 ```
 
-### Password Strength Checker
+### 🌐 Subdomain Finder
+Enumerate subdomains using multi-threaded DNS resolution.
 ```bash
-# Analyze a password
-python password_checker.py -p "YourPassword123!"
+python subdomain_finder.py -d example.com
+python subdomain_finder.py -d example.com -w wordlist.txt -t 100
+python subdomain_finder.py -d example.com -o found.txt
 ```
 
-### Subdomain Finder
+### 🔒 HTTP Header Analyzer
+Audit a website's security headers.
 ```bash
-# Search for subdomains of a target domain
-python subdomain_finder.py google.com -t 20
+python header_analyzer.py -u https://example.com
 ```
 
-### HTTP Header Analyzer
+### #️⃣ Hash Tool
+Generate and verify file hashes.
 ```bash
-# Analyze security headers of a website
-python header_analyzer.py google.com
+python hash_tool.py -f myfile.txt -a sha256
+python hash_tool.py -f myfile.txt --verify abc123...
 ```
 
-## License
-MIT
+### 🔑 Password Checker
+Analyze password strength with entropy scoring.
+```bash
+python password_checker.py -p MyP@ssw0rd123
+python password_checker.py --interactive
+```
+
+---
+
+## 📁 Project Structure
+
+```
+py-security-toolkit/
+├── network_scanner.py       # Port scanner
+├── port_banner_grabber.py   # Banner grabber
+├── subdomain_finder.py      # Subdomain enum
+├── header_analyzer.py       # HTTP header audit
+├── hash_tool.py             # Hash utility
+├── password_checker.py      # Password analysis
+├── requirements.txt         # Dependencies
+├── LICENSE                  # MIT License
+└── README.md                # This file
+```
+
+---
+
+## ⚙️ Requirements
+
+- Python 3.8+
+- `requests` library
+
+Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## ⚠️ Disclaimer
+
+> These tools are intended for **educational purposes** and **authorized security testing only**.  
+> Do not use on systems without explicit permission.  
+> The author is not responsible for any misuse.
+
+---
+
+## 📄 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 👨‍💻 Author
+
+**Sachin Kumar (skytech45)**  
+Electronics Engineering Student | AI & Cybersecurity Enthusiast  
+📍 Bihar, India
+
+---
+
+*Part of an ongoing developer portfolio — actively maintained.*
