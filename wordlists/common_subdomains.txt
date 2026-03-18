@@ -1,0 +1,1 @@
+www\nmail\nftp\nlocalhost\nwebmail\nsmtp\npop\nns1\nns2\nadmin\nblog\ndev\nstaging\napi\nvpn
