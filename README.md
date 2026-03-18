@@ -17,6 +17,7 @@
 | `port_banner_grabber.py` | Port scanner with service banner grabbing |
 | `subdomain_finder.py` | DNS-based subdomain enumeration |
 | `header_analyzer.py` | HTTP security header analyzer |
+| `ssl_checker.py` | SSL/TLS certificate analyzer |
 | `hash_tool.py` | File hash generator and validator |
 | `password_checker.py` | Password strength analyzer with entropy scoring |
 
@@ -62,6 +63,12 @@ Audit a website's security headers.
 python header_analyzer.py -u https://example.com
 ```
 
+### 🛡️ SSL/TLS Checker
+Analyze website SSL certificates for expiration and configuration.
+```bash
+python ssl_checker.py google.com
+```
+
 ### #️⃣ Hash Tool
 Generate and verify file hashes.
 ```bash
@@ -86,8 +93,12 @@ py-security-toolkit/
 ├── port_banner_grabber.py   # Banner grabber
 ├── subdomain_finder.py      # Subdomain enum
 ├── header_analyzer.py       # HTTP header audit
+├── ssl_checker.py           # SSL certificate check
 ├── hash_tool.py             # Hash utility
 ├── password_checker.py      # Password analysis
+├── wordlists/               # Common wordlists
+│   ├── common_subdomains.txt
+│   └── common_passwords.txt
 ├── requirements.txt         # Dependencies
 ├── LICENSE                  # MIT License
 └── README.md                # This file
