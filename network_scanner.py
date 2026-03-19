@@ -2,6 +2,9 @@ import socket
 import argparse
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
+from colorama import Fore, Style, init
+
+init(autoreset=True)
 
 def scan_port(ip, port):
     """Attempt to connect to a specific port on the target IP."""
@@ -17,8 +20,8 @@ def scan_port(ip, port):
 
 def run_scanner(target, start_port, end_port, threads=100):
     """Scan a range of ports on the target IP using multiple threads."""
-    print(f"[*] Scanning target: {target}")
-    print(f"[*] Time started: {datetime.now()}")
+    print(f"{Fore.CYAN}[*] Scanning target: {target}{Style.RESET_ALL}")
+    print(f"{Fore.CYAN}[*] Time started: {datetime.now()}{Style.RESET_ALL}")
     print("-" * 50)
 
     open_ports = []
@@ -28,15 +31,15 @@ def run_scanner(target, start_port, end_port, threads=100):
         for future in futures:
             port, is_open = future.result()
             if is_open:
-                print(f"[+] Port {port} is OPEN")
+                            print(f"{Fore.GREEN}[+] Port {port} is OPEN{Style.RESET_ALL}")
                 open_ports.append(port)
 
     print("-" * 50)
-    print(f"[*] Scanning finished at: {datetime.now()}")
+    print(f"{Fore.CYAN}[*] Scanning finished at: {datetime.now()}{Style.RESET_ALL}")
     if open_ports:
         print(f"[*] Total open ports found: {len(open_ports)}")
     else:
-        print("[!] No open ports found in the specified range.")
+        print(f"{Fore.YELLOW}[!] No open ports found in the specified range.{Style.RESET_ALL}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="A simple multi-threaded port scanner.")
@@ -52,8 +55,8 @@ if __name__ == "__main__":
         target_ip = socket.gethostbyname(args.target)
         run_scanner(target_ip, args.start, args.end, args.threads)
     except socket.gaierror:
-        print("[!] Error: Could not resolve hostname.")
+        print(f"{Fore.RED}[!] Error: Could not resolve hostname.{Style.RESET_ALL}")
     except KeyboardInterrupt:
-        print("\n[!] Scanning interrupted by user.")
+        print(f"\n{Fore.YELLOW}[!] Scanning interrupted by user.{Style.RESET_ALL}")
     except Exception as e:
-        print(f"[!] An unexpected error occurred: {e}")
+        print(f"{Fore.RED}[!] An unexpected error occurred: {e}{Style.RESET_ALL}")
