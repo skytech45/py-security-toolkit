@@ -20,6 +20,7 @@
 | `ssl_checker.py` | SSL/TLS certificate analyzer |
 | `hash_tool.py` | File hash generator and validator |
 | `password_checker.py` | Password strength analyzer with entropy scoring |
+| `dir_bruter.py` | Multi-threaded directory brute-forcer |
 
 ---
 
@@ -83,6 +84,12 @@ python password_checker.py -p MyP@ssw0rd123
 python password_checker.py --interactive
 ```
 
+### 📂 Directory Brute-Forcer
+Discover hidden directories and files on a web server.
+```bash
+python dir_bruter.py https://example.com -w wordlists/common_dirs.txt -t 50
+```
+
 ---
 
 ## 📁 Project Structure
@@ -96,6 +103,7 @@ py-security-toolkit/
 ├── ssl_checker.py           # SSL certificate check
 ├── hash_tool.py             # Hash utility
 ├── password_checker.py      # Password analysis
+├── dir_bruter.py            # Directory brute-forcer
 ├── wordlists/               # Common wordlists
 │   ├── common_subdomains.txt
 │   └── common_passwords.txt
