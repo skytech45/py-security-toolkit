@@ -17,12 +17,11 @@
 | `port_banner_grabber.py` | Port scanner with service banner grabbing |
 | `subdomain_finder.py` | DNS-based subdomain enumeration |
 | `header_analyzer.py` | HTTP security header analyzer |
-| `vulnerability_scanner.py`| Web vulnerability scanner (basic) |
 | `ssl_checker.py` | SSL/TLS certificate analyzer |
-| `dir_bruter.py` | Multi-threaded directory brute-forcer |
-| `whois_lookup.py` | WHOIS domain information lookup with JSON export |
 | `hash_tool.py` | File hash generator and validator |
 | `password_checker.py` | Password strength analyzer with entropy scoring |
+| `dir_bruter.py` | Multi-threaded directory brute-forcer |
+| `whois_lookup.py` | WHOIS domain information lookup with JSON export |
 
 ---
 
@@ -41,7 +40,9 @@ pip install -r requirements.txt
 ### 🔎 Network Scanner
 Scan open ports on a target host using multi-threading. Supports JSON output.
 ```bash
-python network_scanner.py example.com -s 1 -e 1024 -th 200 -o results.json
+python network_scanner.py 192.168.1.1
+python network_scanner.py 192.168.1.1 -s 1 -e 1024 -t 200
+python network_scanner.py example.com -s 1 -e 65535 -o results.json
 ```
 
 ### 🏷️ Port Banner Grabber
@@ -60,35 +61,16 @@ python subdomain_finder.py -d example.com -w wordlist.txt -t 100
 python subdomain_finder.py -d example.com -o found.txt
 ```
 
-### 🛡️ Web Vulnerability Scanner
-Check for common web vulnerabilities like directory listing and exposed sensitive files.
-```bash
-python vulnerability_scanner.py -u https://example.com
-python vulnerability_scanner.py -u https://example.com -r  # Random User-Agent
-```
-
 ### 🔒 HTTP Header Analyzer
 Audit a website's security headers.
 ```bash
 python header_analyzer.py -u https://example.com
 ```
 
-### 📂 Directory Brute-Forcer
-Discover hidden directories and files on a web server.
-```bash
-python dir_bruter.py https://example.com -w wordlists/common_dirs.txt -t 50 -r
-```
-
 ### 🛡️ SSL/TLS Checker
 Analyze website SSL certificates for expiration and configuration.
 ```bash
 python ssl_checker.py google.com
-```
-
-### 🌍 WHOIS Lookup
-Retrieve WHOIS registration and ownership information for any domain.
-```bash
-python whois_lookup.py example.com -o whois_result.json
 ```
 
 ### #️⃣ Hash Tool
@@ -105,6 +87,21 @@ python password_checker.py -p MyP@ssw0rd123
 python password_checker.py --interactive
 ```
 
+### 📂 Directory Brute-Forcer
+Discover hidden directories and files on a web server.
+```bash
+python dir_bruter.py https://example.com -w wordlists/common_dirs.txt -t 50
+```
+
+### 🌍 WHOIS Lookup
+Retrieve WHOIS registration and ownership information for any domain.
+```bash
+python whois_lookup.py example.com
+python whois_lookup.py google.com --ip
+python whois_lookup.py example.com -o whois_result.json
+python whois_lookup.py --interactive
+```
+
 ---
 
 ## 📁 Project Structure
@@ -115,19 +112,15 @@ py-security-toolkit/
 ├── port_banner_grabber.py   # Banner grabber
 ├── subdomain_finder.py      # Subdomain enumeration
 ├── header_analyzer.py       # HTTP security header audit
-├── vulnerability_scanner.py # Web vulnerability scan
-├── ssl_checker.py           # SSL certificate check
-├── whois_lookup.py          # WHOIS domain lookup tool
-├── hash_tool.py             # Hash utility
-├── password_checker.py      # Password analysis
+├── ssl_checker.py           # SSL/TLS certificate checker
+├── hash_tool.py             # File hash utility
+├── password_checker.py      # Password strength analyzer
 ├── dir_bruter.py            # Directory brute-forcer
-├── utils.py                 # Shared utility module
+├── whois_lookup.py          # WHOIS domain lookup tool
 ├── wordlists/               # Common wordlists
 │   ├── common_subdomains.txt
-│   ├── common_passwords.txt
-│   ├── common_dirs.txt
-│   └── common_agents.txt
-├── requirements.txt         # Dependencies
+│   └── common_passwords.txt
+├── requirements.txt         # Python dependencies
 ├── LICENSE                  # MIT License
 └── README.md                # Documentation
 ```
@@ -147,8 +140,8 @@ pip install -r requirements.txt
 
 ## ⚠️ Disclaimer
 
-> These tools are intended for **educational purposes** and **authorized security testing only**.  
-> Do not use on systems without explicit permission.  
+> These tools are intended for **educational purposes** and **authorized security testing only**.
+> Do not use on systems without explicit permission.
 > The author is not responsible for any misuse.
 
 ---
@@ -161,8 +154,8 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 👨‍💻 Author
 
-**Sachin Kumar (skytech45)**  
-Electronics Engineering Student | AI & Cybersecurity Enthusiast  
+**Sachin Kumar (skytech45)**
+Electronics Engineering Student | AI & Cybersecurity Enthusiast
 📍 Bihar, India
 
 ---
