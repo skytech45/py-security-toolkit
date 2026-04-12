@@ -15,7 +15,8 @@
 |------|-------------|
 | `network_scanner.py` | Multi-threaded TCP port scanner with JSON output |
 | `port_banner_grabber.py` | Port scanner with service banner grabbing |
-| `subdomain_finder.py` | DNS-based subdomain enumeration |
+| `subdomain_finder.py` | DNS-based subdomain enumeration (refactored) |
+| `ssh_bruter.py` | Multi-threaded SSH brute-forcer |
 | `header_analyzer.py` | HTTP security header analyzer |
 | `ssl_checker.py` | SSL/TLS certificate analyzer |
 | `hash_tool.py` | File hash generator and validator |
@@ -57,8 +58,14 @@ python port_banner_grabber.py -t example.com -p 1-1000 -o results.csv
 Enumerate subdomains using multi-threaded DNS resolution.
 ```bash
 python subdomain_finder.py -d example.com
-python subdomain_finder.py -d example.com -w wordlist.txt -t 100
+python subdomain_finder.py -d example.com -w wordlists/common_subdomains.txt -t 50
 python subdomain_finder.py -d example.com -o found.txt
+```
+
+### 🔑 SSH Brute-Forcer
+A multi-threaded SSH brute-forcer for authorized testing.
+```bash
+python ssh_bruter.py -t 192.168.1.1 -u admin -w wordlists/common_passwords.txt -th 10
 ```
 
 ### 🔒 HTTP Header Analyzer
@@ -111,6 +118,7 @@ py-security-toolkit/
 ├── network_scanner.py       # Multi-threaded port scanner (JSON output)
 ├── port_banner_grabber.py   # Banner grabber
 ├── subdomain_finder.py      # Subdomain enumeration
+├── ssh_bruter.py            # SSH brute-forcer
 ├── header_analyzer.py       # HTTP security header audit
 ├── ssl_checker.py           # SSL/TLS certificate checker
 ├── hash_tool.py             # File hash utility
